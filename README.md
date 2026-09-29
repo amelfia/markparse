@@ -1,7 +1,7 @@
 # markparse
 
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
-![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
+![Tests](https://github.com/amelfia/markparse/actions/workflows/test.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-orange.svg)
 

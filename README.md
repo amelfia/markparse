@@ -87,7 +87,7 @@ Then open <http://localhost:8888> in your browser.
 
 ## Running Tests
 
-Run the full unit test suite covering tokenization, block parsing, HTML tree rendering, and template interpolation:
+Run the full unit test suite covering tokenization, block parsing, HTML tree rendering, and title extraction:
 
 ```bash
 ./test.sh

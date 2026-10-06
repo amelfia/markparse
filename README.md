@@ -9,6 +9,10 @@ A zero-dependency Markdown-to-HTML AST compiler and static site generator writte
 
 `markparse` tokenizes Markdown into a custom HTML Abstract Syntax Tree (AST), validates inline formatting and block structures, and recursively compiles document trees against HTML layout templates.
 
+## Motivation
+
+I wanted to push my skill set past everyday scripting and into how compilers actually work: tokenizing raw text, building a tree, and turning that tree back into output. Markdown was a good target because the input is simple but the edge cases are not. I built markparse with zero dependencies so every step, from raw `.md` to a finished HTML page, is code I wrote and understand.
+
 ---
 
 ## Overview & Architecture
@@ -44,7 +48,7 @@ A zero-dependency Markdown-to-HTML AST compiler and static site generator writte
 - **Basepath routing:** configurable via CLI argument for hosting under custom sub-paths (e.g. GitHub Pages)
 - **Automated asset sync:** cleans and mirrors static assets (stylesheets, images) on build
 
-## Getting Started
+## Quick Start
 
 ### Prerequisites
 
@@ -64,6 +68,8 @@ Compile with the default basepath (`/`):
 ```bash
 python3 src/main.py
 ```
+
+## Usage
 
 Compile for GitHub Pages deployment:
 
@@ -85,10 +91,16 @@ cd docs && python3 -m http.server 8888
 
 Then open <http://localhost:8888> in your browser.
 
-## Running Tests
+## Contributing
 
-Run the full unit test suite covering tokenization, block parsing, HTML tree rendering, and title extraction:
+### Run the test suite
+
+Covers tokenization, block parsing, HTML tree rendering, and title extraction:
 
 ```bash
 ./test.sh
 ```
+
+### Submit a pull request
+
+Fork the repository and open a pull request.

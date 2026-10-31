@@ -45,9 +45,11 @@ The pipeline, standard library only:
   - Blockquotes (`>`)
   - Images `![alt](src)` and links `[text](url)`
   - `**bold**`, `_italic_` and `` `code` ``
-- **Not supported yet:** nested formatting, `*italic*`, `* ` lists, nested lists, tables, blank lines inside code blocks, and HTML escaping (anything that looks like a tag, such as `<name>`, is read as HTML, even inside a code block). A lone `_` or backtick (e.g. `snake_case`) raises an "unmatched" error.
-- **Basepath routing:** set via a CLI argument for hosting under a sub-path (e.g. GitHub Pages)
-- **Asset sync:** clears `docs/` and copies `static/` into it on every build
+
+- **Not supported yet:**
+  - nested formatting, `*italic*`, `* ` lists, nested lists, tables, blank lines inside code blocks, and HTML escaping (anything that looks like a tag, such as `<name>`, is read as HTML, even inside a code block). A lone `_` or backtick (e.g. `snake_case`) raises an "unmatched" error.
+  - **Basepath routing:** set via a CLI argument for hosting under a sub-path (e.g. GitHub Pages)
+  - **Asset sync:** clears `docs/` and copies `static/` into it on every build
 
 ## Quick Start
 

@@ -1,46 +1,20 @@
-# Tolkien Fan Club
+# Ali Melfi 
 
-![JRR Tolkien sitting](/images/tolkien.png)
+I build backend tools, in London. 
 
-Here's the deal, **I like Tolkien**.
+Before software I spent a year at Clair Global / Britannia Row running networks for live events: UFC, WWE, Formula E and crowds of 300,000+. One comms rack needed the same redundant steps every time we set up frequencies, and I couldn't reprogram it. That job is why I moved into software. 
 
-> "I am in fact a Hobbit in all but size."
->
-> -- J.R.R. Tolkien
+## Projects
 
-## Blog posts
+- [live-vcs](/projects/live-vcs): Git-style version control for Ableton Live projects. My MSc dissertation.
+- [Subagent](/projects/subagent): a command-line coding agent on Gemini that can only touch files inside one folder.
+- [MarkParse](https://github.com/amelfia/markparse): the Markdown compiler that builds this site.
 
-- [Why Glorfindel is More Impressive than Legolas](/blog/glorfindel)
-- [Why Tom Bombadil Was a Mistake](/blog/tom)
-- [The Unparalleled Majesty of "The Lord of the Rings"](/blog/majesty)
+## Writing
 
-## Reasons I like Tolkien
+- [How Ableton saves a file](/blog/ableton-saves)
 
-- You can spend years studying the legendarium and still not understand its depths
-- It can be enjoyed by children and adults alike
-- Disney _didn't ruin it_ (okay, but Amazon might have)
-- It created an entirely new genre of fantasy
+## Elsewhere
 
-## My favorite characters (in order)
-
-1. Gandalf
-2. Bilbo
-3. Sam
-4. Glorfindel
-5. Galadriel
-6. Elrond
-7. Thorin
-8. Sauron
-9. Aragorn
-
-Here's what `elflang` looks like (the perfect coding language):
-
-```
-func main(){
-    fmt.Println("Aiya, Ambar!")
-}
-```
-
-Want to get in touch? [Contact me here](/contact).
-
-This site was generated with a custom-built [static site generator](https://www.boot.dev/courses/build-static-site-generator-python) from the course on [Boot.dev](https://www.boot.dev).
+- [GitHub](https://github.com/amelfia)
+- [LinkedIn](https://linkedin.com/in/alimelfi)

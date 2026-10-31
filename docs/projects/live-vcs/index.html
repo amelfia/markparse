@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>live-vcs</title>
+    <link href="/markparse/index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav>
+      <a href="/markparse/">Ali Melfi</a>
+      <a href="/markparse/contact">Contact</a>
+      <a href="https://github.com/amelfia">GitHub</a>
+    </nav>
+    <main><div><h1>live-vcs</h1><p>Git-style version control for Ableton Live projects: saves become commits you can branch from and load back. My MSc dissertation. <a href="https://github.com/amelfia/live-vcs">Code on GitHub</a></p><h2>Why I built it</h2><p>When I'm working on a track I want to try ideas without losing the version that already works. In Ableton that meant Save As copies piling up in the project folder, and finding an old idea meant opening them one by one. I wanted something closer to Git: every save recorded with a short note, branches for trying things, and a way to go back.</p><h2>How it works</h2><ul><li>Run live-vcs in a terminal next to Ableton and point it at your project folder.</li><li>Every time you save, it asks for a short note and stores a copy of the .als as a commit.</li><li>Saving without changes doesn't create a commit, because it compares a hash of the decompressed XML with the last commit.</li><li><code>branch</code> starts a new branch from the current commit, <code>switch</code> moves between branches, and <code>graph</code> draws the history in the terminal.</li><li><code>load</code> takes a commit's hash, switches to its branch, copies that version over the project file and reopens it in Ableton.</li></ul><pre><code>* d4a2f81 Main synth melody sketch
+|
+* 1a9b2c3 synth double
+|\
+| * 7f2b1a4 Add vocal chop processing (vocal-chop)
+| |
+| * 3c8e190 Sidechain sub bass to kick
+|/
+|
+* 0f3e9a2 init
+</code></pre><h2>Decisions</h2><ul><li>No merge. Two versions of a synth lead aren't competing edits to the same text, they're different ideas, so merging them doesn't mean anything musically.</li><li>It reacts to filesystem events instead of checking the folder every few seconds, so it does nothing until you actually save.</li><li>It asks for a note on every save. That's a small interruption, but it's the price of never having to stop and Save As by hand.</li></ul><h2>What was hard</h2><p>Working out what a save actually is. Ableton doesn't document it, so I had to watch the events myself: <a href="/markparse/blog/ableton-saves">How Ableton saves a file</a>.</p><p>The other hard part was two threads sharing one terminal. The watcher runs in the background and needs to ask for a note, while the main loop is waiting for your next command. A lock makes sure only one of them reads from the terminal at a time, an event flag pauses commands while a save is being handled, and the main loop polls the terminal with a short timeout instead of blocking.</p><h2>Limits</h2><ul><li>macOS only for now.</li><li>One .als per project folder, so <code>load</code> knows which file to overwrite.</li></ul><h2>Next</h2><p>A Max for Live device, so the note and the graph live inside Ableton instead of a terminal.</p></div></main>
+  </body>
+</html>

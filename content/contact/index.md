@@ -1,9 +1,6 @@
-# Contact the Author
+# Contact
 
-[< Back Home](/)
+Email me at [alimelfi300@gmail.com](mailto:alimelfi300@gmail.com).
 
-Give me a call anytime to chat about Tolkien!
-
-`555-555-5555`
-
-**"Váya márië."**
+- [GitHub](https://github.com/amelfia)
+- [LinkedIn](https://linkedin.com/in/alimelfi)

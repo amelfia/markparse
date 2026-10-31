@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Subagent</title>
+    <link href="/markparse/index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav>
+      <a href="/markparse/">Ali Melfi</a>
+      <a href="/markparse/contact">Contact</a>
+      <a href="https://github.com/amelfia">GitHub</a>
+    </nav>
+    <main><div><h1>Subagent</h1><p>A command-line coding agent in Python on Google's Gemini API. You give it a task, and it lists, reads, writes and runs files inside one working folder, feeding each result back to the model until it has an answer. <a href="https://github.com/amelfia/subagent">Code on GitHub</a></p><h2>Why I built it</h2><p>AI coding tools are everywhere now, and I wanted to understand what actually happens inside one. How does a model decide to read a file? What stops it from writing outside the project? Building Subagent answered both: the agent loop is a model choosing tools and a dispatcher running them, and the boundary is a path check that runs before every file operation.</p><h2>How it works</h2><ol><li>You run it with a prompt.</li><li>The prompt goes to Gemini 2.5 Flash along with a list of four tools.</li><li>If the model asks for a tool, Subagent runs it and adds the result to the conversation.</li><li>That repeats until the model answers in plain text, or until 20 turns are used up.</li></ol><pre><code>uv run main.py "Read main.py and tell me what it does" --verbose
+</code></pre><pre><code>get_files_info     list a folder, with file sizes
+get_file_content   read a file (first 10,000 characters)
+write_file         write or overwrite a file, creating folders as needed
+run_python_file    run a .py file, 30-second timeout, returns stdout, stderr and exit code
+</code></pre><h2>Keeping it inside one folder</h2><p>The model never chooses where it works. A central dispatcher adds the working folder to every tool call and overwrites any folder the model tries to pass in. Each tool then resolves the full path, symlinks included, and rejects anything that isn't inside that folder, so paths like ../ or /etc never reach the filesystem.</p><p>That covers file paths, not what a script does once it runs. A Python file the agent runs has the same permissions as me, which is why the README says scripts aren't isolated.</p><h2>What was hard</h2><p>Google's documentation. The agent loop itself is simple once you see it, but working out how the google-genai SDK wants things was a pain: how to describe each tool so the model can call it, and how to hand the result back so the model reads it as the tool's answer. Most of my time went into reading the docs and checking what actually came back.</p><h2>Limits</h2><ul><li>It only works on the folder set in config.py, which is the sample calculator app by default.</li><li>The tests are scripts that print what each tool returns, not assertions, and there's no CI yet.</li><li>If a call to Gemini fails, it retries, but the failed attempt still uses up one of the 20 turns.</li></ul></div></main>
+  </body>
+</html>
